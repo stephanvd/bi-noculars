@@ -1,0 +1,88 @@
+<head>
+  <title>BI-noculars</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>BI-noculars</h1>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-md-3">
+        {{> facets}}
+      </div>
+
+      <div class="col-md-9">
+        {{> charts}}
+
+        {{> table}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="facets">
+  <h4>Locaties</h4>
+
+  <div class="facet">
+    {{#each locations}}
+      <div class="checkbox">
+        <label>
+          <input value="{{this}}" class="locations-facet" type="checkbox" {{isLocationChecked}}> {{this}}
+        </label>
+      </div>
+    {{/each}}
+
+    {{#each locationsWithoutResults}}
+      <div class="checkbox">
+        <label class="without-results">
+          <input value="{{this}}" class="without-results locations-facet" type="checkbox" {{isLocationChecked}}> {{this}}
+        </label>
+      </div>
+    {{/each}}
+  </div>
+
+  <hr>
+
+
+  <h4>Recruiters</h4>
+
+  <div class="facet">
+    {{#each recruiters}}
+      <div class="checkbox">
+        <label>
+          <input value="{{this}}" class="recruiters-facet" type="checkbox" {{isRecruiterChecked}}> {{this}}
+        </label>
+      </div>
+    {{/each}}
+
+    {{#each recruitersWithoutResults}}
+      <div class="checkbox">
+        <label class="without-results">
+          <input value="{{this}}" class="recruiters-facet" type="checkbox" {{isRecruiterChecked}}> {{this}}
+        </label>
+      </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name="charts">
+</template>
+
+<template name="table">
+  <table class="table">
+    <tr>
+      <th>Week</th>
+      <th>Omzet</th>
+      <th>Marge</th>
+    </tr>
+    {{#each results}}
+      <tr>
+        <td>{{week}}</td>
+        <td>&euro; {{amount}}</td>
+        <td>&euro; {{profit}}</td>
+      </tr>
+    {{/each}}
+  </table>
+</template>

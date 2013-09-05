@@ -1,0 +1,10 @@
+.without-results {
+  color: #777;
+}
+
+.facet {
+  height: 250px;
+  overflow: scroll;
+  border: 1px solid #eee;
+  padding: 10px;
+}
